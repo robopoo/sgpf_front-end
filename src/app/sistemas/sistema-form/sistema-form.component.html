@@ -1,0 +1,54 @@
+<h5>{{ title }}</h5>
+<div class="row">
+  <form materialize class="col s12" [formGroup]="form" (ngSubmit)="save()">
+    
+
+    <label>Empresa</label>
+    <select class="browser-default">
+      <option value="" disabled selected>Selecione uma empresa</option>
+      <option *ngFor="let empresa of empresas" value= {{empresa.id}}> {{empresa.sigla}} - {{empresa.nome}}}</option>
+    </select>
+    <br>
+    <div class="row">
+      <div class="input-field col s12">
+        
+        <input id="sigla" type="text" class="validate"
+               [(ngModel)]="sistema.sigla" formControlName="sigla"
+               [class.invalid]="form.controls['sigla'].touched && !form.controls['sigla'].valid">
+        <label for="sigla" 
+               [class.active]="sistema.sigla"
+               data-error="Sigla é obrigatória e deve ter ao menos 3 caracteres">
+               Sigla
+            </label>
+      </div>
+    </div>
+       
+    <div class="row">
+      <div class="input-field col s12">
+        
+        <input id="nome" type="text" class="validate"
+               [(ngModel)]="sistema.nome" formControlName="nome"
+               [class.invalid]="form.controls['nome'].touched && !form.controls['nome'].valid"
+        >
+        <label for="nome"
+               [class.active]="sistema.nome"
+               data-error="Nome é obrigatório e deve ter ao menos 3 caracteres.">
+          Nome
+        </label>
+      </div>
+    </div>    
+    <div class="row">
+      <div class="input-field col s12">       
+        <textarea id="descricao" type="text" class="materialize-textarea"
+               [(ngModel)]="sistema.descricao" formControlName="descricao"> </textarea>
+        <label for="descricao" [class.active]="sistema.descricao">Descrição</label>
+      </div>
+    </div>
+
+    <button class="btn waves-effect waves-light" type="submit"
+            [disabled]="!form.valid">
+      Submit<i class="material-icons right">send</i>
+    </button>
+  </form>
+</div>
+        

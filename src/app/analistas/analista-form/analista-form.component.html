@@ -1,0 +1,45 @@
+<h5>{{ title }}</h5>
+<div class="row">
+  <form materialize class="col s12" [formGroup]="form" (ngSubmit)="save()">
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">account_circle</i>
+        <input id="nome" type="text" class="validate"
+               [(ngModel)]="analista.nome" formControlName="nome"
+               [class.invalid]="form.controls['nome'].touched && !form.controls['nome'].valid"
+        >
+        <label for="nome"
+               [class.active]="analista.nome"
+               data-error="Nome é obrigatório e deve conter até 3 caracteres">
+          Nome
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">email</i>
+        <input id="email" type="email" class="validate"
+               [(ngModel)]="analista.email" formControlName="email"
+               [class.invalid]="form.controls['email'].touched && !form.controls['email'].valid">
+        <label for="email"
+               [class.active]="analista.email"
+               data-error="Invalid Email">
+          Email
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">phone</i>
+        <input id="telefone" type="text" class="validate"
+               [(ngModel)]="analista.telefone" formControlName="telefone">
+        <label for="telefone" [class.active]="analista.telefone">Telefone</label>
+      </div>
+    </div>
+    
+    <button class="btn waves-effect waves-light" type="submit"
+            [disabled]="!form.valid">
+      Submit<i class="material-icons right">send</i>
+    </button>
+  </form>
+</div>

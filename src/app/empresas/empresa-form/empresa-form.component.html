@@ -1,0 +1,41 @@
+<h5>{{ title }}</h5>
+<div class="row">
+  <form materialize class="col s12" [formGroup]="form" (ngSubmit)="save()">
+    
+    <div class="row">
+      <div class="input-field col s12">
+        
+        <input id="cnpj" type="text" class="validate"
+               [(ngModel)]="empresa.cnpj" formControlName="cnpj">
+        <label for="cnpj" [class.active]="empresa.razaoSocial">CNPJ</label>
+      </div>
+    </div>
+       
+    <div class="row">
+      <div class="input-field col s12">
+        
+        <input id="name" type="text" class="validate"
+               [(ngModel)]="empresa.name" formControlName="name"
+               [class.invalid]="form.controls['name'].touched && !form.controls['name'].valid"
+        >
+        <label for="name"
+               [class.active]="empresa.name"
+               data-error="Name is required and needs to contain at least 3 chars">
+          Nome
+        </label>
+      </div>
+    </div>    
+    <div class="row">
+      <div class="input-field col s12">
+       
+        <input id="razaoSocial" type="text" class="validate"
+               [(ngModel)]="empresa.razaoSocial" formControlName="razaoSocial">
+        <label for="razaoSocial" [class.active]="empresa.razaoSocial">Razão Social</label>
+      </div>
+    </div>    
+    <button class="btn waves-effect waves-light" type="submit"
+            [disabled]="!form.valid">
+      Submit<i class="material-icons right">send</i>
+    </button>
+  </form>
+</div>

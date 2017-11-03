@@ -1,0 +1,39 @@
+<p>
+    Exibindo {{ sistemas.length }} sistemas.
+  </p>
+  
+  <table>
+    <thead>
+    <tr>
+      <th data-field="sigla">Sigla</th>
+      <th data-field="name">Nome</th>
+      <th data-field="editar">Editar</th>
+      <th data-field="deletar">Deletar</th>
+    </tr>
+    </thead>
+  
+    <tbody>
+      <tr *ngFor="let sistema of sistemas">
+        <td>{{ sistema.sigla }}</td>
+        <td>{{ sistema.nome }}</td>
+        <td>
+          <a [routerLink]="['/sistemas', sistemas.id]">
+            <i class="material-icons">mode_edit</i>
+          </a>
+        </td>
+        <td>
+          <a (click)="deleteSistema(sistema)" href="">
+            <i class="material-icons">delete</i>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+    <a class="btn-floating btn-large waves-effect waves-light green"
+       routerLink="/sistemas/new">
+      <i class="material-icons">add</i>
+    </a>
+  </div>
+  
