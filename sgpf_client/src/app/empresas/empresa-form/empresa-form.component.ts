@@ -23,7 +23,7 @@ export class EmpresaFormComponent implements OnInit {
     private empresaService: EmpresasService
   ) { 
       this.form = FormBuilder.group({
-      name: ['', [
+      nome: ['', [
        Validators.required,
        Validators.minLength(3)
       ]],

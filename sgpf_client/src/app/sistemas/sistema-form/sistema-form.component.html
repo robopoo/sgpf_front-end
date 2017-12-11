@@ -2,11 +2,11 @@
 <div class="row">
   <form materialize class="col s12" [formGroup]="form" (ngSubmit)="save()">
     
-
+    <br> 
     <label>Empresa</label>
-    <select class="browser-default">
+    <select name="idEmpresa"class="browser-default" [(ngModel)]="sistema.idEmpresa">
       <option value="" disabled selected>Selecione uma empresa</option>
-      <option *ngFor="let empresa of empresas" value= {{empresa.id}}> {{empresa.sigla}} - {{empresa.nome}}}</option>
+      <option *ngFor="let empresa of empresas" [value]= "sistema.idEmpresa"> {{empresa.nome}}</option>
     </select>
     <br>
     <div class="row">
@@ -17,7 +17,7 @@
                [class.invalid]="form.controls['sigla'].touched && !form.controls['sigla'].valid">
         <label for="sigla" 
                [class.active]="sistema.sigla"
-               data-error="Sigla é obrigatória e deve ter ao menos 3 caracteres">
+               data-error="Sigla é obrigatória e deve ter entre 3 e 5 caracteres">
                Sigla
             </label>
       </div>

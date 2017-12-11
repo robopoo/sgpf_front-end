@@ -9,7 +9,7 @@ import { Observable } from 'rxjs/Rx';
 @Injectable()
 export class EmpresasService {
 
-  private url: string = "http://localhost:8080/sgpf/empresas";
+  private url: string = "https://my-json-server.typicode.com/thiagoblaraujo/Baphometricas/empresas";
 
   constructor(private http: Http) { }
 

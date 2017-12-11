@@ -16,7 +16,10 @@ import { empresasRouting } from "./empresas/empresas.routing";
 import { EmpresasModule } from "./empresas/empresas.module";
 import { sistemasRouting } from "./sistemas/sistemas.routing";
 import { SistemasModule } from "./sistemas/sistemas.module";
-
+import { projetosRouting } from "./projetos/projetos.routing";
+import { ProjetosModule } from "./projetos/projetos.module";
+import { funcaoDadosRouting } from "./funcao-dados/funcao-dados.routing";
+import { FuncaoDadosModule } from "./funcao-dados/funcao-dados.module";
 
 
 @NgModule({
@@ -37,6 +40,10 @@ import { SistemasModule } from "./sistemas/sistemas.module";
     empresasRouting,
     SistemasModule,
     sistemasRouting,
+    ProjetosModule,
+    projetosRouting,
+    FuncaoDadosModule,
+    funcaoDadosRouting,
     routing
   ],
   providers: [],

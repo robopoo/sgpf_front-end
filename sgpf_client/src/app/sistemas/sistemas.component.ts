@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {SistemasService} from "./shared/sistema.service";
 import {Sistema} from "./shared/sistema";
 
+
 @Component({
   selector: 'app-sistemas',
   templateUrl: './sistemas.component.html',
@@ -9,8 +10,7 @@ import {Sistema} from "./shared/sistema";
 })
 export class SistemasComponent implements OnInit {
 
-  private sistemas: Sistema[] = [];
-
+  private sistemas: Sistema[] = []; 
   constructor(private sistemasService: SistemasService) { }
 
   ngOnInit() {
@@ -18,8 +18,9 @@ export class SistemasComponent implements OnInit {
       .subscribe(data => this.sistemas = data);
   }
 
+
   deleteSistema(sistema){
-    if (confirm("Tem certeza que deseja deletar: " + sistema.name + "?")) {
+    if (confirm("Tem certeza que deseja deletar: " + sistema.nome + "?")) {
       var index = this.sistemas.indexOf(sistema);
       this.sistemas.splice(index, 1);
 

@@ -6,7 +6,7 @@
     <thead>
     <tr>
       <th data-field="cnpj">CNPJ</th>
-      <th data-field="name">Nome</th>
+      <th data-field="nome">Nome</th>
       <th data-field="editar">Editar</th>
       <th data-field="deletar">Deletar</th>
     </tr>
@@ -17,7 +17,7 @@
         <td>{{ empresa.cnpj }}</td>
         <td>{{ empresa.nome }}</td>
         <td>
-          <a [routerLink]="['/empresas', empresas.id]">
+          <a [routerLink]="['/empresas', empresa.id]">
             <i class="material-icons">mode_edit</i>
           </a>
         </td>

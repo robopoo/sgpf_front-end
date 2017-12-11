@@ -2,7 +2,7 @@
 
 export class Analista {
   id: number;
-  name: string;
-  phone: string;
+  nome: string;
+  telefone: string;
   email: string;
 }

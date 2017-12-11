@@ -5,6 +5,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Sistema } from '../shared/sistema';
 import { SistemasService } from '../shared/sistema.service';
 import { BasicValidators } from '../../shared/basic-validators';
+import { Empresa } from 'app/empresas/shared/empresa';
+import { EmpresasService } from './../../empresas/shared/empresa.service';
 
 @Component({
   selector: 'app-sistema-form',
@@ -16,15 +18,22 @@ export class SistemaFormComponent implements OnInit {
   form: FormGroup;
   title: string;
   sistema: Sistema = new Sistema();
+  empresas: Empresa[];
+
   constructor(
     FormBuilder: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
-    private sistemaService: SistemasService
+    private sistemaService: SistemasService,
+    private empresasService: EmpresasService
   ) { 
+      this.empresasService.getEmpresas().subscribe(data => this.empresas = data);
+
       this.form = FormBuilder.group({
-      sigla: ['', [
+      idEmpresa: [],
+       sigla: ['', [
        Validators.required,
+       Validators.minLength(3),
        Validators.maxLength(5)
       ]],
       nome: ['', [

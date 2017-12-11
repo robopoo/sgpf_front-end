@@ -14,13 +14,13 @@
     <div class="row">
       <div class="input-field col s12">
         
-        <input id="name" type="text" class="validate"
-               [(ngModel)]="empresa.name" formControlName="name"
-               [class.invalid]="form.controls['name'].touched && !form.controls['name'].valid"
+        <input id="nome" type="text" class="validate"
+               [(ngModel)]="empresa.nome" formControlName="nome"
+               [class.invalid]="form.controls['nome'].touched && !form.controls['nome'].valid"
         >
-        <label for="name"
-               [class.active]="empresa.name"
-               data-error="Name is required and needs to contain at least 3 chars">
+        <label for="nome"
+               [class.active]="empresa.nome"
+               data-error="Nome é obrigatório e deve conter pelo menos 3 caracteres">
           Nome
         </label>
       </div>

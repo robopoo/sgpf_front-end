@@ -1,0 +1,78 @@
+<h5>{{ title }}</h5>
+<div class="row">
+  <form materialize class="col s12" [formGroup]="form" (ngSubmit)="save()">
+ 
+    <br> 
+    <label>Empresa</label>
+    <select name="idEmpresa"class="browser-default" [(ngModel)]="projeto.idEmpresa">
+        <option value="" disabled selected>Selecione uma empresa</option>
+        <option *ngFor="let empresa of empresas" [value]= "empresa.id"> {{empresa.nome}}</option>
+    </select>
+    <br>
+
+    <label>Sistema</label>
+    <select name="idSistema"class="browser-default" [(ngModel)]="projeto.idSistema">
+        <option value="" disabled selected>Selecione um sistema</option>
+        <option *ngFor="let sistema of sistemas" value= {{sistema.id}}> {{sistema.sigla}} - {{sistema.nome}}</option>
+    </select>
+    <br>
+
+    <label>Analista</label>
+    <select name="idAnalista"class="browser-default" [(ngModel)]="projeto.idAnalista">
+        <option value="" disabled selected>Selecione um analista</option>
+        <option *ngFor="let analista of analistas" value= {{analista.id}}> {{analista.nome}}</option>
+    </select>
+    <br>
+
+    <div class="row">
+      <div class="input-field col s12">
+        
+        <input id="identificador" type="number" class="validate"
+               [(ngModel)]="projeto.identificador" formControlName="identificador"
+               [class.invalid]="form.controls['identifcador'].touched && !form.controls['identificador'].valid">
+        <label for="identificador" 
+               [class.active]="projeto.identificador"
+               data-error="O identificador é obrigatório e deve ter ao menos 3 dígitos">
+               Identificador
+        </label>
+      </div>
+    </div>
+       
+    <div class="row">
+      <div class="input-field col s12">
+        
+        <input id="titulo" type="text" class="validate"
+               [(ngModel)]="projeto.titulo" formControlName="titulo"
+               [class.invalid]="form.controls['titulo'].touched && !form.controls['titulo'].valid"
+        >
+        <label for="titulo"
+               [class.active]="projeto.titulo"
+               data-error="O título é obrigatório e deve ter ao menos 5 caracteres.">
+          Título
+        </label>
+      </div>
+    </div>    
+    <div class="row">
+      <div class="input-field col s12">       
+        <textarea id="descricao" type="text" class="materialize-textarea"
+               [(ngModel)]="projeto.descricao" formControlName="descricao"> </textarea>
+        <label for="descricao" [class.active]="projeto.descricao">Descrição</label>
+      </div>
+    </div>
+   <br>
+   <label>Tipo de Projeto</label>  
+    <select id="tipo" type="number" class="browser-default"[(ngModel)]="projeto.tipo">
+        <option value="" disabled selected>Selecione um tipo de projeto:</option>
+        <option value= 1>Projeto de Desenvolvimento</option>
+        <option value= 2>Projeto de Melhoria</option>
+        <option value= 3>Aplicação</option>
+    </select>
+    <br>
+    <br>
+    <br>
+    <button class="btn waves-effect waves-light" type="submit"
+            [disabled]="!form.valid">
+      Submit<i class="material-icons right">send</i>
+    </button>
+  </form>
+</div>

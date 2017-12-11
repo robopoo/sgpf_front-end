@@ -24,7 +24,7 @@ export class AnalistaFormComponent implements OnInit {
     private analistaService: AnalistasService
   ) {
     this.form = formBuilder.group({
-      name: ['', [
+      nome: ['', [
         Validators.required,
         Validators.minLength(3)
       ]],
@@ -33,7 +33,7 @@ export class AnalistaFormComponent implements OnInit {
         BasicValidators.email
         //Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"),
       ]],
-      phone: [],
+      telefone: [],
     });
   }
 

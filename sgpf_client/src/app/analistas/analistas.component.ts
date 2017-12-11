@@ -19,7 +19,7 @@ export class AnalistasComponent implements OnInit {
   }
 
   deleteAnalista(analista){
-    if (confirm("Tem certeza que deseja deletar: " + analista.name + "?")) {
+    if (confirm("Tem certeza que deseja deletar: " + analista.nome + "?")) {
       var index = this.analistas.indexOf(analista);
       this.analistas.splice(index, 1);
 
